@@ -41,5 +41,19 @@ class User {
 		}
 	}
 	
+	public function login($username, $password){
+		$key = new Password();
+		$md5 = $key->crypto($password);
+		if ( mysql_num_rows(
+				$this->database->queryDB(
+				"Select * from Usuarios where username='$username' and password = '$md5'") 
+			)> 0
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }
 ?>
