@@ -1,4 +1,8 @@
 <?php
+require_once 'Database.php';
+require_once 'Password.php';
+
+
 class User {
 	var $database;
 	function  __construct(){
@@ -6,7 +10,7 @@ class User {
 		$this->database->connect();
 	}
 	
-	public function criaUsuario($name, $mail, $type, $pass){ 
+	public function createUser($name, $mail, $type, $pass){ 
 		 
 		//verifica se existe o user
 		
@@ -16,9 +20,10 @@ class User {
 		
 		$password = new Password();
 		$key = $password->crypto($pass);
-		$sql="INSERT INTO Usuarios VALUES (5, '$name','$key','$type', '$mail')";
+		$id = $this->database->get_current_insert_id('Usuarios');
+		$sql="INSERT INTO Usuarios VALUES ($id, '$name','$key','$type', '$mail')";
 		
-		$this->database->queryDB($sql);
+		return $this->database->queryDB($sql);
 		
 	}
 	
