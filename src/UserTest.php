@@ -8,8 +8,9 @@ class UserTest extends PHPUnit_TestCase {
 	var $test;
 	
 	function testCriaUsuario(){
-		$this->test = new User("nome", "anderson.o@gmail.com", "aluno", "apple");
-		$this->assertTrue(false);
+		$this->test = new User();
+		$result = $this->test->criaUsuario("nome", "zeh@cpovo.net", "aluno", "apple");
+		$this->assertTrue($result);
 	}
 }
 
