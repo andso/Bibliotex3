@@ -77,9 +77,13 @@
 -->
 <?php 
 require_once 'User.php';
+	
 
-	if ($_POST["password"]=="")
-    	$passwordIsEmpty = true;
+	//TODO: teria que fazer essa verificacao no formulario mesmo
+	if ($_POST["password"]=="" || $_POST["password2"]=="" || $_POST["username"]=="" || $_POST["mail"]==""){
+		exit;
+	} 
+    	
 	if ($_POST["password2"]=="")
     	$password2IsEmpty = true;
 	if ($_POST["password"]!=$_POST["password2"]) {

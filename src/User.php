@@ -10,6 +10,10 @@ class User {
 		$this->database->connect();
 	}
 	
+	function __destruct() {
+       $this->database->connect();
+   }
+	
 	public function createUser($name, $mail, $type, $pass){ 
 		 
 		//verifica se existe o user
