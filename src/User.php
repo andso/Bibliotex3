@@ -30,18 +30,14 @@ class User {
 	  function userExists($mail){ 
 		
 		//TODO: create a new class to handle the user sql stuff
-		$sqlResult = $this->database->queryDB("Select username from Usuarios where email=$mail");
-		
-		if ( mysql_num_rows($sqlResult)>0){
-		
-			return true;
-		} else{
-		
-			return false;
-		}
+		return  $this->database->queryDB("Select username from Usuarios where email=$mail");
 	}
 	
 	public function login($username, $password){
+		if(empty($username)){
+			return false;
+		}
+		//error_log("Username  ".$username, 0 );
 		$key = new Password();
 		$md5 = $key->crypto($password);
 		if ( mysql_num_rows(

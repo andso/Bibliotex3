@@ -13,9 +13,9 @@ class Database{
 	}
 	
 	public function queryDB($query){
-		print $query;
+		//print $query;
 		$result = mysql_query($query);
-		print ">>> ". $result."<<<< result";
+		//print ">>> ". $result."<<<< result";
 		return $result;
 	}
 	
