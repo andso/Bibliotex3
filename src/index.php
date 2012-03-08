@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Bibliotex 3 </title>
 <link rel="stylesheet" type="text/css" href="assets/view.css" media="all">
 <script type="text/javascript" src="assets/view.js"></script>
@@ -21,7 +21,7 @@
 		<ul >
 			
 					<li id="li_1" >
-		<label class="description" for="element_1">Usuario </label>
+		<label class="description" for="element_1">Usu‡rio </label>
 		<div>
 			<input id="element_1" name="username" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
@@ -59,8 +59,9 @@
 	$auth = $user->login($_POST['username'], $_POST['password']);
 	if ($auth){
 		error_log("Logando  ".$auth, 0 );
-		
+			session_start();
         	$_SESSION['username'] = $_POST['username'];
+        	$_SESSION[auth] = $auth;
         	header('Location: bibliotex.php');
         	exit;
 	} else {

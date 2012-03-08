@@ -46,8 +46,14 @@
 		</form>	
 <?php 
 	require_once 'Search.php';
+	session_start();
+	if ( $_SESSION[auth]){
+		print 'Bem vindo '. $_SESSION['username'];
+	} else {
+		header('Location: index.php');
+	}
+	
 	if (empty( $_POST['content'])) {
-		
 		exit;
 	} 
 	$newSearch = new Search();
