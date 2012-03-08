@@ -23,9 +23,9 @@ class Search{
 		
 		$result =  $this->database->queryDB($sql);
 		$row = mysql_fetch_array( $result );
-		print "Reultado: ".$row['title'];
-		return $result;
-		
+		//print "Reultado: ".$row['title'];
+		//return $result;
+		return $row;
 	}
 	
 }

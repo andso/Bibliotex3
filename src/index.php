@@ -21,7 +21,7 @@
 		<ul >
 			
 					<li id="li_1" >
-		<label class="description" for="element_1">Usu‡rio </label>
+		<label class="description" for="element_1">Usuario </label>
 		<div>
 			<input id="element_1" name="username" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
@@ -36,12 +36,12 @@
 					<li class="buttons">
 			    <input type="hidden" name="form_id" value="363808" />
 			    
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Entrar" />
 		</li>
 			</ul>
 		</form>	
 		<div id="footer">
-		 <a href="newUser.php" > Novo Usu‡rio </a>
+		 <a href="newUser.php" > Novo Usuario </a>
 		</div>
 	</div>
 	<img id="bottom" src="assets/bottom.png" alt="">
@@ -49,7 +49,11 @@
 </html>
 
 <?php 
-require_once 'User.php';
+	require_once 'User.php';
+	if (empty( $_POST['username'])) {
+		print 'Preencha seu usuario!';
+		exit;
+	} 
 	$auth = false;
 	$user = new User();
 	$auth = $user->login($_POST['username'], $_POST['password']);
@@ -61,6 +65,7 @@ require_once 'User.php';
         	exit;
 	} else {
 		error_log("Wrong password ".$auth, 0 );
+		print "Senha incorreta";
 		//header('Location: index.php');
 	}
 ?>
