@@ -6,3 +6,4 @@ create table usuarios (
 	type varchar(16) not null,
 	primary key (id)
 );
+INSERT INTO Usuarios VALUES (1, 'admin','21232f297a57a5a743894a0e4a801fc3','root', 'admin@bibliotex.com')
