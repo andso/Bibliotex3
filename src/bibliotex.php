@@ -4,12 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bibliotex 3 </title>
 <link rel="stylesheet" type="text/css" href="assets/view.css" media="all">
-<script type="text/javascript" src="assetsview.js"></script>
+<script type="text/javascript" src="assets/assetsview.js"></script>
 
 </head>
 <body id="main_body" >
 	
-	<img id="top" src="top.png" alt="">
+	<img id="top" src="assets/top.png" alt="">
 	<div id="form_container">
 	
 		<h1><a>Bibliotex 3 </a></h1>
@@ -47,11 +47,20 @@
 <?php 
 	require_once 'Search.php';
 	session_start();
-	if ( $_SESSION[auth]){
-		print 'Bem vindo '. $_SESSION['username'];
-	} else {
-		header('Location: index.php');
-	}
+	if ( $_SESSION[auth]=""){
+		
+		error_log("Bibliotex: Something wrong with your session, go back to index... ", 0 );
+		
+		//header('Location: index.php');
+		exit;
+		
+		
+		} else {
+			error_log("Bem vindo   ".$_SESSION['username'], 0 );
+		
+			print 'Bem vindo '. $_SESSION['username'];
+				
+		}
 	
 	if (empty( $_POST['content'])) {
 		exit;

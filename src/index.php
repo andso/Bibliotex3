@@ -58,12 +58,15 @@
 	$user = new User();
 	$auth = $user->login($_POST['username'], $_POST['password']);
 	if ($auth){
-		error_log("Logando  ".$auth, 0 );
+			//error_log("Logando  ".$auth, 0 );
 			session_start();
+			//error_log("Logando  2", 0 );
         	$_SESSION['username'] = $_POST['username'];
-        	$_SESSION[auth] = $auth;
+        	$_SESSION["auth"] = $auth;
+        	//error_log("Logando  3", 0 );
+        	 
         	header('Location: bibliotex.php');
-        	exit;
+        	//exit;
 	} else {
 		error_log("Wrong password ".$auth, 0 );
 		print "Senha incorreta";

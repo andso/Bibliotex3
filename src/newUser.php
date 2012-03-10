@@ -33,7 +33,7 @@
 		</li>		<li id="li_2" >
 		<label class="description" for="element_2">Senha </label>
 		<div>
-			<input id="element_2" name="password" class="element text medium" type="password" maxlength="255" value=""/> 
+			<input id="password" name="password" class="element text medium" type="password" maxlength="255" value=""/> 
 		</div> 
 		</li>		<li id="li_5" >
 		<label class="description" for="element_5">Confirmar Senha </label>
@@ -57,50 +57,41 @@
 	</body>
 </html>
 
-<!--  
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-      New User<br>
-        <form action="newUser.php" method="POST">
-            Username: <input type="text" name="username"/><br/>
-            E-mail: <input type="text" name="mail"/><br/>
-            
-            Password: <input type="password" name="password"/><br/>
-            Please confirm your password: <input type="password" name="password2"/><br/>
-            <input type="submit" value="Register"/>
-        </form>
-     </body>
-</html>
--->
+
 <?php 
 require_once 'User.php';
 	
 
 	//TODO: teria que fazer essa verificacao no formulario mesmo
-	if ($_POST["password"]=="" || $_POST["password2"]=="" || $_POST["username"]=="" || $_POST["mail"]==""){
+	if (empty($_POST['password'])){ //=="" || $_POST['password2']=="" || $_POST['username']=="" || $_POST['mail']==""){
+		error_log("New User error");
 		exit;
 	} 
     	
-	if ($_POST["password2"]=="")
-    	$password2IsEmpty = true;
-	if ($_POST["password"]!=$_POST["password2"]) {
-    	$passwordIsValid = false;
+	if ($_POST['password2'] != $_POST['password']){
+		error_log("New User error- password doesnt match");
+		header('Location: newUser.php');
+		exit;	
 	}
-//"nome", "zeh@cpovo.net", "aluno", "apple"
-	$user = new User();
-	$result= $user->createUser($_POST["username"], $_POST["mail"], "aluno", $_POST["password"]);
 	
+	$user = new User();
+	$result= $user->createUser($_POST["username"], $_POST["mail"], 'aluno', $_POST["password"]);
+	//print $result;
 	
 	//After the user creation redirect to main page
 	if ($result){
-			error_log("Logando novo usuario ".$result, 0 );
 		
+			$user = new User();
+			$auth = $user->login($_POST['username'], $_POST['password']);
+			error_log("Logando novo usuario ".$result, 0 );
+			session_start();
         	$_SESSION['username'] = $_POST['username'];
+        	$_SESSION['auth'] = $auth;
         	header('Location: bibliotex.php');
+        	
         	exit;
+	} else {
+		 error_log ( "Nao foi possivel criar usuario ".$_POST["username"].$_POST["mail"].'aluno'.$_POST["password"]);
 	}
 	
 	

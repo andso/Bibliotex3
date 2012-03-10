@@ -26,7 +26,7 @@ class User {
 		$key = $password->crypto($pass);
 		$id = $this->database->get_current_insert_id('Usuarios');
 		$sql="INSERT INTO Usuarios VALUES ($id, '$name','$key','$type', '$mail')";
-		
+		print $sql;
 		return $this->database->queryDB($sql);
 		
 	}
