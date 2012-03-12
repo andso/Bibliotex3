@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>include_search</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">include_search</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/pos/bibliotex3/src/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_1</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_2</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=saveForm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=title</td>
+	<td>seu madruga, o mito</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=author</td>
+	<td>Anderson de Oliveira</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_3_1</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_3_2</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_3_3</td>
+	<td>1912</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pages</td>
+	<td>221</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=content</td>
+	<td>Interpretado por Ramón Valdés, seu sucesso permanece até hoje na televisão brasileira, mais especificamente no SBT.<br />Na trama, o personagem tem como filha uma garotinha chamada Chiquinha (Maria Antonieta de las Nieves), cuja mãe morreu no seu nascimento. Madruga é sempre injustamente castigado com bofetadas no rosto pela vizinha Dona Florinda (Florinda Meza). Vive fugindo das cobranças de 14 meses de aluguel, feitas pelo Senhor Barriga (Edgar Vivar), dono da vila. Sempre repreende o protagonista, Chaves, por suas travessuras, com cascudos na sua cabeça, porém, não o odeia. Apesar de frequentemente estar de mau humor, é um homem de bom coração, que ama a todos na vila, especialmente as crianças.<br />Ramón Valdés faleceu em 9 de agosto de 1988, devido a um câncer de pulmão que se espalhou pelo corpo e atingiu a sua espinha, e deixa saudades até os dias de hoje. Ainda hoje, o personagem Seu Madruga é cultuado e possui diversas páginas, blogs e comunidades nos sites de relacionamentos Orkut, Facebook, dentro outros tantos, em sua homenagem.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=type</td>
+	<td>label=Livro</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=saveForm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_1</td>
+	<td>teste1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=element_2</td>
+	<td>teste11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=saveForm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=content</td>
+	<td>Madruga</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=saveForm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Bibliotex 3 Bibliotex 3 Busca<br /> <br /> <br /> Digite sua busca<br /> Lazy Search Timeline Bem vindo teste1<br />Reultado: Resource id #6<br />Resultado: <br />seu madruga, o mito [Anderson de Oliveira 0000-00-00]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
