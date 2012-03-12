@@ -51,14 +51,14 @@
 		
 		error_log("Bibliotex: Something wrong with your session, go back to index... ", 0 );
 		
-		//header('Location: index.php');
+		header('Location: index.php');
 		exit;
 		
 		
 		} else {
 			error_log("Bem vindo   ".$_SESSION['username'], 0 );
 		
-			print 'Bem vindo '. $_SESSION['username'];
+			print 'Bem vindo '. $_SESSION['username'].'<br>';
 				
 		}
 	
@@ -66,8 +66,13 @@
 		exit;
 	} 
 	$newSearch = new Search();
-	$row = $newSearch->lazySearch($_POST["content"]);
-	print "Reultado: ".$row['title'];
+	$result = $newSearch->lazySearch($_POST["content"]);
+	echo '<br><a>Resultado: </a>';
+	while($row = mysql_fetch_array($result)) { 
+		// Texto [Avinash Kaushik 2007] 
+  		echo '<br>'.$row['title'].'  ['.$row['author'].' '.$row['pub_date'] .']'; 
+	}  
+	
 ?>		
 		
 	</div>

@@ -110,6 +110,24 @@
 
 
 	require_once 'Book.php';
+	//Refactory: transformar em uma funcao
+	session_start();
+	if ( $_SESSION[auth]=""){
+	
+	error_log("Bibliotex: Something wrong with your session, go back to index... ", 0 );
+	
+	header('Location: index.php');
+	exit;
+	
+	
+	} else {
+		error_log("Bem vindo   ".$_SESSION['username'], 0 );
+	
+		print 'Bem vindo '. $_SESSION['username'];
+			
+	}
+	
+	
  	$newBook = new Book();
  	//TODO incluir a data
  	$newBook->addBook($_POST["title"], $_POST["author"],  $_POST["pages"], $_POST["content"], $_POST["type"]);

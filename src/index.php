@@ -64,8 +64,12 @@
         	$_SESSION['username'] = $_POST['username'];
         	$_SESSION["auth"] = $auth;
         	//error_log("Logando  3", 0 );
-        	 
-        	header('Location: bibliotex.php');
+        	if ($_SESSION['username']== 'admin'){
+        		header('Location: newBook.php');
+        		
+        	} else {
+        		header('Location: bibliotex.php');
+        	}
         	//exit;
 	} else {
 		error_log("Wrong password ".$auth, 0 );
